@@ -2,129 +2,611 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VIGNAN GROUP OF SCHOOLS</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #17324d;
-    }
-    header {
-      background: #ffffff;
-      padding: 20px;
-    }
-    nav {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding: 12px 0;
-    }
-    nav a {
-      color: #0b3768;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .hero {
-      background: linear-gradient(90deg, #062b52, #14599a);
-      color: white;
-      padding: 60px 7%;
-    }
-    section {
-      padding: 35px 7%;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: #eaf5ff;
-      padding: 20px;
-      border-radius: 12px;
-    }
-    footer {
-      background: #0b3768;
-      color: white;
-      padding: 25px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Official information website for Vignan Group of Schools, Yadadri Bhongir.">
+<title>VIGNAN GROUP OF SCHOOLS | Yadadri Bhongir</title>
+
+<style>
+:root {
+  --navy: #092b50;
+  --blue: #1266a8;
+  --sky: #eaf5ff;
+  --gold: #ffbf36;
+  --white: #ffffff;
+  --text: #26384a;
+  --muted: #60748a;
+  --shadow: 0 8px 28px rgba(7, 38, 72, .12);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #f7faff;
+  line-height: 1.65;
+}
+a { color: inherit; }
+img { max-width: 100%; }
+button { font: inherit; cursor: pointer; }
+
+.topbar {
+  background: var(--navy);
+  color: white;
+  padding: 8px 5%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 3px 15px #102d4812;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 5%;
+}
+.logo {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 2px solid #e0eaf4;
+  object-fit: contain;
+  background: white;
+}
+.brand h1 {
+  color: var(--navy);
+  margin: 0;
+  font-size: clamp(19px, 3vw, 30px);
+  line-height: 1.2;
+}
+.brand p { margin: 5px 0 0; color: var(--muted); }
+.menu-wrap {
+  padding: 0 5%;
+  background: #f1f7ff;
+}
+nav {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  padding: 10px 0;
+}
+nav a {
+  text-decoration: none;
+  color: var(--navy);
+  padding: 9px 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+}
+nav a:hover, nav a:focus {
+  background: var(--blue);
+  color: white;
+}
+.hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 65px 7%;
+  background:
+    linear-gradient(90deg, rgba(4,29,58,.94), rgba(4,43,82,.70)),
+    url("school-building-1.jpg") center/cover no-repeat,
+    var(--navy);
+}
+.hero-content { max-width: 760px; }
+.eyebrow {
+  display: inline-block;
+  background: #ffffff20;
+  border: 1px solid #ffffff50;
+  padding: 7px 14px;
+  border-radius: 25px;
+}
+.hero h2 {
+  font-size: clamp(32px, 6vw, 58px);
+  line-height: 1.12;
+  margin: 20px 0;
+}
+.hero p { font-size: 18px; max-width: 650px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 0;
+}
+.btn-gold { background: var(--gold); color: #142c45; }
+.btn-white { background: white; color: var(--navy); }
+.btn-blue { background: var(--blue); color: white; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: -30px 5% 20px;
+  position: relative;
+}
+.stat {
+  text-align: center;
+  background: white;
+  border-radius: 13px;
+  padding: 23px 12px;
+  box-shadow: var(--shadow);
+}
+.stat strong { display: block; color: var(--blue); font-size: 24px; }
+.stat span { color: var(--muted); font-size: 14px; }
+
+section { padding: 65px 7%; scroll-margin-top: 160px; }
+.section-heading { max-width: 750px; margin: 0 auto 35px; text-align: center; }
+.section-heading .tag {
+  color: var(--blue);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.section-heading h2 {
+  font-size: clamp(27px, 4vw, 39px);
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 10px 0;
+}
+.section-heading p { color: var(--muted); }
+
+.about-grid, .founder-grid, .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: center;
+}
+.photo-frame {
+  min-height: 260px;
+  background: #e5f0fa;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.photo-frame img { width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
+.content-card {
+  background: white;
+  padding: 27px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+.content-card h3 { color: var(--navy); margin-top: 0; }
+.check-list { padding-left: 20px; }
+.check-list li { margin: 9px 0; }
+
+.blue-section { background: var(--sky); }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  padding: 25px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: var(--shadow);
+  transition: transform .2s;
+}
+.card:hover { transform: translateY(-4px); }
+.card .icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: var(--sky);
+  color: var(--blue);
+  border-radius: 12px;
+  font-size: 25px;
+  margin-bottom: 16px;
+}
+.card h3 { color: var(--navy); margin: 0 0 8px; }
+.card p { color: var(--muted); margin-bottom: 0; }
+
+.founder-card {
+  overflow: hidden;
+  background: white;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+.founder-card img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: #e5eff8;
+}
+.founder-info { padding: 22px; }
+.founder-info h3 { color: var(--navy); margin: 0; }
+.founder-info p { color: var(--muted); }
+
+.exam-banner {
+  padding: 30px;
+  border-radius: 18px;
+  color: white;
+  background: linear-gradient(120deg, var(--navy), var(--blue));
+}
+.exam-banner h3 { font-size: 27px; margin-top: 0; }
+.exam-banner .badge {
+  display: inline-block;
+  padding: 6px 11px;
+  margin: 4px;
+  border-radius: 20px;
+  background: #ffffff20;
+  border: 1px solid #ffffff40;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.gallery figure {
+  margin: 0;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #e5eff8;
+}
+.gallery figcaption { padding: 12px 15px; font-weight: bold; }
+
+.contact-card {
+  background: white;
+  padding: 24px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  margin-bottom: 15px;
+}
+.contact-card h3 { color: var(--navy); margin-top: 0; }
+.contact-card a { color: var(--blue); }
+.hours {
+  border-left: 4px solid var(--gold);
+  padding: 12px 16px;
+  background: #fff8e7;
+  border-radius: 0 8px 8px 0;
+}
+footer { background: #061e38; color: white; padding: 40px 7% 20px; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+}
+footer h3 { color: var(--gold); }
+footer a { color: white; }
+.footer-bottom {
+  border-top: 1px solid #ffffff30;
+  margin-top: 25px;
+  padding-top: 15px;
+  font-size: 13px;
+}
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 45px;
+  height: 45px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 20px;
+  box-shadow: var(--shadow);
+}
+@media(max-width:700px) {
+  .topbar { font-size: 12px; }
+  .brand { padding: 12px 4%; gap: 10px; }
+  .logo { width: 58px; height: 58px; }
+  .menu-wrap { padding: 0 4%; }
+  .hero { min-height: 420px; padding: 45px 6%; }
+  section { padding: 48px 6%; }
+  .about-grid, .founder-grid, .contact-grid { grid-template-columns: 1fr; }
+  .stats { margin-left: 4%; margin-right: 4%; }
+  .founder-card img { height: 260px; }
+}
+</style>
 </head>
+
 <body>
+<div class="topbar">
+  <span>📍 Yadadri Bhongir</span>
+  <span>☎ 9247772064 &nbsp; | &nbsp; 9247516620</span>
+</div>
 
 <header>
-  <h2>VIGNAN GROUP OF SCHOOLS</h2>
-  <p>Yadadri Bhongir</p>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#founders">Founders</a>
-    <a href="#academics">Academics</a>
-    <a href="#facilities">Facilities</a>
-    <a href="#exams">Exams</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="brand">
+    <img class="logo" src="school-logo.png"
+         alt="Vignan Group of Schools logo"
+         onerror="this.style.display='none'">
+    <div>
+      <h1>VIGNAN GROUP OF SCHOOLS</h1>
+      <p>Education • Knowledge • Future</p>
+    </div>
+  </div>
+  <div class="menu-wrap">
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#founders">Founders</a>
+      <a href="#academics">Academics</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#exams">Exams</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
-  <div class="hero" id="home">
-    <h1>Welcome to VIGNAN GROUP OF SCHOOLS</h1>
-    <p>Building knowledge, confidence and a bright future.</p>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="eyebrow">Welcome to our school</span>
+      <h2>A strong foundation for a brighter future</h2>
+      <p>
+        VIGNAN GROUP OF SCHOOLS provides learning opportunities
+        from Nursery to 10th standard, with academic learning
+        and IIT/NEET Foundation preparation.
+      </p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#about">Discover Our School</a>
+        <a class="btn btn-white" href="#contact">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><strong>Nursery–10th</strong><span>Classes offered</span></div>
+    <div class="stat"><strong>Weekly</strong><span>IIT/NEET Foundation exams</span></div>
+    <div class="stat"><strong>8 AM–5 PM</strong><span>School timings</span></div>
   </div>
 
   <section id="about">
-    <h2>About Our School</h2>
-    <p>Vignan group of schools is a great school
-    established by the great man Dr. Pagidala
-    Jalendhar Reddy and Pagidala Purendhar Reddy.</p>
+    <div class="section-heading">
+      <span class="tag">About us</span>
+      <h2>Welcome to Vignan Group of Schools</h2>
+      <p>Learn about our school, our vision and our educational approach.</p>
+    </div>
+    <div class="about-grid">
+      <div class="photo-frame">
+        <img src="school-building-1.jpg" alt="Vignan school building">
+      </div>
+      <div class="content-card">
+        <h3>About Our School</h3>
+        <p>
+          Vignan group of schools is a great school established by
+          the great man Dr. Pagidala Jalendhar Reddy and
+          Pagidala Purendhar Reddy.
+        </p>
+        <p>
+          We offer classes from Nursery to 10th standard and provide
+          a learning environment supported by academic assessments,
+          practical facilities and foundation preparation.
+        </p>
+        <ul class="check-list">
+          <li>Classes from Nursery to 10th standard</li>
+          <li>Monthly school examinations</li>
+          <li>Weekly IIT and NEET Foundation exams</li>
+          <li>Computer lab, playground and chemical lab</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section id="founders">
-    <h2>Our Founders</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Dr. Pagidala Jalendhar Reddy</h3>
-      </div>
-      <div class="card">
-        <h3>Pagidala Purendhar Reddy</h3>
-      </div>
+  <section class="blue-section" id="founders">
+    <div class="section-heading">
+      <span class="tag">Our leadership</span>
+      <h2>Our Founders</h2>
+      <p>Meet the people named in our school's founding information.</p>
+    </div>
+    <div class="founder-grid">
+      <article class="founder-card">
+        <img src="founder-jalendhar.jpg"
+             alt="Dr. Pagidala Jalendhar Reddy"
+             loading="lazy">
+        <div class="founder-info">
+          <h3>Dr. Pagidala Jalendhar Reddy</h3>
+          <p>Founder of Vignan Group of Schools.</p>
+        </div>
+      </article>
+      <article class="founder-card">
+        <img src="founder-purendhar.jpg"
+             alt="Pagidala Purendhar Reddy"
+             loading="lazy">
+        <div class="founder-info">
+          <h3>Pagidala Purendhar Reddy</h3>
+          <p>Founder of Vignan Group of Schools.</p>
+        </div>
+      </article>
     </div>
   </section>
 
   <section id="academics">
-    <h2>Academics</h2>
-    <p>Classes: Nursery to 10th standard.</p>
+    <div class="section-heading">
+      <span class="tag">Academics</span>
+      <h2>Learning at Vignan</h2>
+      <p>Our school offers classes from Nursery to 10th standard.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="icon">📚</div>
+        <h3>Nursery and Primary</h3>
+        <p>Learning foundations for younger students.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🎓</div>
+        <h3>Middle Classes</h3>
+        <p>Building knowledge and understanding across subjects.</p>
+      </article>
+      <article class="card">
+        <div class="icon">📝</div>
+        <h3>Secondary Classes</h3>
+        <p>Academic learning for students through 10th standard.</p>
+      </article>
+    </div>
   </section>
 
-  <section id="facilities">
-    <h2>Our Facilities</h2>
+  <section class="blue-section" id="facilities">
+    <div class="section-heading">
+      <span class="tag">Facilities</span>
+      <h2>Explore Our Facilities</h2>
+      <p>Facilities listed by Vignan Group of Schools.</p>
+    </div>
     <div class="cards">
-      <div class="card">Computer Lab</div>
-      <div class="card">Playground</div>
-      <div class="card">Chemical Lab</div>
+      <article class="card">
+        <div class="icon">💻</div>
+        <h3>Computer Lab</h3>
+        <p>A facility for students to learn about computers and technology.</p>
+      </article>
+      <article class="card">
+        <div class="icon">⚽</div>
+        <h3>Playground</h3>
+        <p>A space for physical activities and outdoor games.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🧪</div>
+        <h3>Chemical Lab</h3>
+        <p>A practical learning facility for chemistry-related activities.</p>
+      </article>
     </div>
   </section>
 
   <section id="exams">
-    <h2>Exams and Foundation Programs</h2>
-    <p>Monthly school examinations.</p>
-    <p>IIT and NEET Foundation exams are conducted every week.</p>
+    <div class="section-heading">
+      <span class="tag">Examinations</span>
+      <h2>Exams and Foundation Programs</h2>
+      <p>Regular assessments and foundation preparation.</p>
+    </div>
+    <div class="exam-banner">
+      <h3>Prepare, practise and progress</h3>
+      <p>Our school information includes the following assessment programs:</p>
+      <span class="badge">Monthly school exams</span>
+      <span class="badge">Weekly IIT Foundation exams</span>
+      <span class="badge">Weekly NEET Foundation exams</span>
+      <p>
+        Contact the school for the current exam timetable,
+        program details and class-wise information.
+      </p>
+    </div>
+  </section>
+
+  <section class="blue-section" id="gallery">
+    <div class="section-heading">
+      <span class="tag">Gallery</span>
+      <h2>School Gallery</h2>
+      <p>Replace these image filenames with your uploaded photographs.</p>
+    </div>
+    <div class="gallery">
+      <figure>
+        <img src="school-building-1.jpg" alt="School building" loading="lazy">
+        <figcaption>School Building</figcaption>
+      </figure>
+      <figure>
+        <img src="school-building-2.jpg" alt="School campus" loading="lazy">
+        <figcaption>School Campus</figcaption>
+      </figure>
+      <figure>
+        <img src="founder-jalendhar.jpg" alt="Dr. Pagidala Jalendhar Reddy" loading="lazy">
+        <figcaption>Dr. Pagidala Jalendhar Reddy</figcaption>
+      </figure>
+      <figure>
+        <img src="founder-purendhar.jpg" alt="Pagidala Purendhar Reddy" loading="lazy">
+        <figcaption>Pagidala Purendhar Reddy</figcaption>
+      </figure>
+    </div>
   </section>
 
   <section id="contact">
-    <h2>Contact Us</h2>
-    <p>School timings: 8:00 AM – 5:00 PM</p>
-    <p>Phone: 9247772064, 9247516620</p>
-    <p>Email: vignan.info@gmail.com</p>
+    <div class="section-heading">
+      <span class="tag">Contact</span>
+      <h2>Get in Touch</h2>
+      <p>Contact Vignan Group of Schools for school-related enquiries.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-card">
+          <h3>📍 Location</h3>
+          <p>Yadadri Bhongir, Telangana</p>
+        </div>
+        <div class="contact-card">
+          <h3>☎ Phone</h3>
+          <p><a href="tel:9247772064">9247772064</a></p>
+          <p><a href="tel:9247516620">9247516620</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>✉ Email</h3>
+          <p><a href="mailto:vignan.info@gmail.com">vignan.info@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="content-card">
+        <h3>School Timings</h3>
+        <div class="hours">
+          <strong>8:00 AM – 5:00 PM</strong>
+          <p>Please contact the school to confirm holidays,
+             admissions and office availability.</p>
+        </div>
+        <h3 style="margin-top:25px">Admissions and Enquiries</h3>
+        <p>For admissions, class availability, fees and other details,
+           contact the school directly by phone or email.</p>
+        <a class="btn btn-blue" href="mailto:vignan.info@gmail.com">Send Email</a>
+      </div>
+    </div>
   </section>
 </main>
 
 <footer>
-  <p>VIGNAN GROUP OF SCHOOLS — Yadadri Bhongir</p>
+  <div class="footer-grid">
+    <div>
+      <h3>VIGNAN GROUP OF SCHOOLS</h3>
+      <p>Learning today for a brighter tomorrow.</p>
+      <p>Yadadri Bhongir, Telangana</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="#about">About Us</a></p>
+      <p><a href="#academics">Academics</a></p>
+      <p><a href="#facilities">Facilities</a></p>
+      <p><a href="#exams">Examinations</a></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>9247772064</p>
+      <p>9247516620</p>
+      <p>vignan.info@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span id="year"></span> VIGNAN GROUP OF SCHOOLS. All rights reserved.</p>
+  </div>
 </footer>
 
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("backTop").addEventListener("click", function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
 </body>
 </html>
-
