@@ -1,0 +1,605 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vignan Group of Schools, Yadadri Bhongir">
+<title>VIGNAN GROUP OF SCHOOLS</title>
+
+<style>
+:root {
+  --navy: #092b50;
+  --blue: #1266a8;
+  --sky: #eaf5ff;
+  --gold: #ffbf36;
+  --text: #26384a;
+  --muted: #60748a;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #f7faff;
+  line-height: 1.7;
+}
+img { max-width: 100%; }
+a { color: inherit; }
+.topbar {
+  background: var(--navy);
+  color: white;
+  padding: 9px 5%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 3px 15px #102d4812;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 5%;
+}
+.logo {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 2px solid #e0eaf4;
+  object-fit: contain;
+}
+.brand h1 {
+  color: var(--navy);
+  margin: 0;
+  font-size: clamp(20px, 3vw, 30px);
+  line-height: 1.3;
+}
+.brand p { margin: 4px 0; color: var(--muted); }
+.menu-wrap { padding: 0 5%; background: #f1f7ff; }
+nav {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 12px 0;
+}
+nav a {
+  text-decoration: none;
+  color: var(--navy);
+  padding: 9px 15px;
+  border-radius: 25px;
+  font-weight: bold;
+}
+nav a:hover { background: var(--blue); color: white; }
+.hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 65px 7%;
+  background:
+    linear-gradient(90deg,rgba(4,29,58,.92),rgba(4,43,82,.65)),
+    url("school-building-1.jpg") center/cover no-repeat,
+    var(--navy);
+}
+.hero-content { max-width: 760px; }
+.eyebrow {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid #ffffff70;
+  border-radius: 25px;
+}
+.hero h2 {
+  font-size: clamp(34px, 6vw, 58px);
+  line-height: 1.15;
+  margin: 20px 0;
+}
+.hero p { font-size: 18px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-white { background: white; color: var(--navy); }
+.btn-blue { background: var(--blue); color: white; }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+  gap: 15px;
+  margin: -25px 5% 20px;
+  position: relative;
+}
+.stat {
+  text-align: center;
+  background: white;
+  border-radius: 13px;
+  padding: 22px 12px;
+  box-shadow: 0 8px 28px #0726481f;
+}
+.stat strong { display: block; color: var(--blue); font-size: 23px; }
+.stat span { color: var(--muted); }
+section { padding: 65px 7%; scroll-margin-top: 160px; }
+.blue-section { background: var(--sky); }
+.section-heading {
+  max-width: 750px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+.tag {
+  color: var(--blue);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.section-heading h2 {
+  font-size: clamp(27px,4vw,39px);
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 10px 0;
+}
+.section-heading p { color: var(--muted); }
+.about-grid,.founder-grid,.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 28px;
+  align-items: center;
+}
+.photo-frame {
+  min-height: 260px;
+  background: #e5f0fa;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+.content-card {
+  background: white;
+  padding: 27px;
+  border-radius: 15px;
+  box-shadow: 0 8px 28px #0726481f;
+}
+.content-card h3 { color: var(--navy); margin-top: 0; }
+.check-list li { margin: 9px 0; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+.card {
+  padding: 25px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 8px 28px #0726481f;
+}
+.card h3 { color: var(--navy); }
+.card p { color: var(--muted); }
+.icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+.founder-card {
+  overflow: hidden;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 28px #0726481f;
+}
+.founder-card img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: #e5eff8;
+}
+.founder-info { padding: 22px; }
+.founder-info h3 { color: var(--navy); margin: 0; }
+.exam-banner {
+  padding: 30px;
+  border-radius: 18px;
+  color: white;
+  background: linear-gradient(120deg,var(--navy),var(--blue));
+}
+.exam-banner h3 { font-size: 27px; }
+.badge {
+  display: inline-block;
+  padding: 6px 11px;
+  margin: 4px;
+  border-radius: 20px;
+  background: #ffffff20;
+  border: 1px solid #ffffff40;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 16px;
+}
+.gallery figure {
+  margin: 0;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.gallery figcaption { padding: 12px 15px; font-weight: bold; }
+.contact-card {
+  background: white;
+  padding: 24px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+.contact-card h3 { color: var(--navy); }
+.contact-card a { color: var(--blue); }
+.hours {
+  border-left: 4px solid var(--gold);
+  padding: 12px 16px;
+  background: #fff8e7;
+}
+footer {
+  background: #061e38;
+  color: white;
+  padding: 40px 7% 20px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 25px;
+}
+footer h3 { color: var(--gold); }
+footer a { color: white; }
+.footer-bottom {
+  border-top: 1px solid #ffffff30;
+  margin-top: 25px;
+  padding-top: 15px;
+}
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 45px;
+  height: 45px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 22px;
+  cursor: pointer;
+}
+@media(max-width:700px) {
+  .brand { padding: 12px 4%; gap: 10px; }
+  .logo { width: 58px; height: 58px; }
+  .menu-wrap { padding: 0 4%; }
+  .hero { min-height: 420px; padding: 45px 6%; }
+  section { padding: 48px 6%; }
+  .about-grid,.founder-grid,.contact-grid { grid-template-columns: 1fr; }
+  .stats { margin-left: 4%; margin-right: 4%; }
+  .founder-card img { height: 260px; }
+}
+</style>
+</head>
+
+<body>
+<div class="topbar">
+  <span>📍 Yadadri Bhongir, Telangana</span>
+  <span>☎ 9247772064 | 9247516620</span>
+</div>
+
+<header>
+  <div class="brand">
+    <img class="logo" src="school-logo.png" alt="Vignan School Logo">
+    <div>
+      <h1>VIGNAN GROUP OF SCHOOLS</h1>
+      <p>Education • Knowledge • Future</p>
+    </div>
+  </div>
+  <div class="menu-wrap">
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#vision">Vision & Mission</a>
+      <a href="#founders">Founders</a>
+      <a href="#academics">Academics</a>
+      <a href="#quality">Quality Education</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#exams">Exams</a>
+      <a href="#values">Values</a>
+      <a href="#learning">Learning</a>
+      <a href="#parents">Parents</a>
+      <a href="#future">Future</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">Welcome to our school</span>
+    <h2>A Strong Foundation for a Brighter Future</h2>
+    <p>VIGNAN GROUP OF SCHOOLS provides learning opportunities from Nursery to 10th standard, with academic learning and IIT/NEET Foundation preparation.</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="#about">Discover Our School</a>
+      <a class="btn btn-white" href="#contact">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><strong>Nursery–10th</strong><span>Classes offered</span></div>
+  <div class="stat"><strong>Weekly</strong><span>IIT/NEET Foundation exams</span></div>
+  <div class="stat"><strong>8 AM–5 PM</strong><span>School timings</span></div>
+</div>
+
+<section id="about">
+  <div class="section-heading">
+    <span class="tag">About Us</span>
+    <h2>Welcome to Vignan Group of Schools</h2>
+    <p>Learn about our school, our vision and our educational approach.</p>
+  </div>
+  <div class="about-grid">
+    <div class="photo-frame">
+      <img src="school-building-1.jpg" alt="Vignan school building">
+    </div>
+    <div class="content-card">
+      <h3>About Our School</h3>
+      <p>Vignan group of schools is a great school established by the great man Dr. Pagidala Jalendhar Reddy and Pagidala Purendhar Reddy.</p>
+      <p>We offer classes from Nursery to 10th standard and provide a learning environment supported by academic assessments, practical facilities and foundation preparation.</p>
+      <ul class="check-list">
+        <li>Classes from Nursery to 10th standard</li>
+        <li>Monthly school examinations</li>
+        <li>Weekly IIT and NEET Foundation exams</li>
+        <li>Computer lab, playground and chemical lab</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="blue-section" id="vision">
+  <div class="section-heading">
+    <span class="tag">Our Purpose</span>
+    <h2>Our Vision and Mission</h2>
+    <p>Our commitment to learning, growth and student development.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="icon">🌟</div>
+      <h3>Our Vision</h3>
+      <p>Our vision is to inspire every student to become a confident, responsible, knowledgeable, and successful individual. We aim to create a positive learning environment where students can discover their talents, develop their abilities, and prepare themselves for future challenges. We believe that education is not only about academic success but also about building good character, discipline, creativity, and respect for others.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🎯</div>
+      <h3>Our Mission</h3>
+      <p>Our mission is to provide quality education that encourages curiosity, critical thinking, and a lifelong love of learning. We strive to support students in their academic journey through effective teaching, regular assessments, practical learning opportunities, and guidance from teachers. We aim to help every student develop confidence, responsibility, and the skills needed to achieve their goals.</p>
+    </article>
+  </div>
+</section>
+
+<section id="founders">
+  <div class="section-heading">
+    <span class="tag">Our Leadership</span>
+    <h2>Our Founders</h2>
+    <p>Meet the people named in our school's founding information.</p>
+  </div>
+  <div class="founder-grid">
+    <article class="founder-card">
+      <img src="founder-jalendhar.jpg" alt="Dr. Pagidala Jalendhar Reddy" loading="lazy">
+      <div class="founder-info">
+        <h3>Dr. Pagidala Jalendhar Reddy</h3>
+        <p>Founder of Vignan Group of Schools.</p>
+      </div>
+    </article>
+    <article class="founder-card">
+      <img src="founder-purendhar.jpg" alt="Pagidala Purendhar Reddy" loading="lazy">
+      <div class="founder-info">
+        <h3>Pagidala Purendhar Reddy</h3>
+        <p>Founder of Vignan Group of Schools.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="blue-section" id="academics">
+  <div class="section-heading">
+    <span class="tag">Academics</span>
+    <h2>Learning at Vignan</h2>
+    <p>Our school offers classes from Nursery to 10th standard.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="icon">📚</div>
+      <h3>Nursery and Primary</h3>
+      <p>Learning foundations for younger students through age-appropriate classroom learning and activities.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🎓</div>
+      <h3>Middle Classes</h3>
+      <p>Building knowledge and understanding across subjects and developing independent learning habits.</p>
+    </article>
+    <article class="card">
+      <div class="icon">📝</div>
+      <h3>Secondary Classes</h3>
+      <p>Academic learning for students through 10th standard, with revision and assessment.</p>
+    </article>
+  </div>
+</section>
+
+<section id="quality">
+  <div class="section-heading">
+    <span class="tag">Learning Approach</span>
+    <h2>Quality Education</h2>
+  </div>
+  <div class="content-card">
+    <p>At Vignan Group of Schools, we believe that every child deserves the opportunity to learn, grow, and succeed. Our educational approach focuses on understanding concepts, developing problem-solving skills, and building a strong academic foundation. Through classroom learning, examinations, and practical activities, we encourage students to improve their knowledge and work towards their educational goals.</p>
+    <p>Regular practice, revision, and guidance help students identify what they understand well and what they need to work on. Students are encouraged to ask questions, participate in lessons, and develop confidence in their abilities.</p>
+  </div>
+</section>
+
+<section class="blue-section" id="facilities">
+  <div class="section-heading">
+    <span class="tag">Facilities</span>
+    <h2>Explore Our Facilities</h2>
+    <p>Facilities listed by Vignan Group of Schools.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="icon">💻</div>
+      <h3>Computer Lab</h3>
+      <p>A facility for students to learn about computers and technology and develop digital skills.</p>
+    </article>
+    <article class="card">
+      <div class="icon">⚽</div>
+      <h3>Playground</h3>
+      <p>A space for physical activities, outdoor games, teamwork and recreation.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🧪</div>
+      <h3>Chemical Lab</h3>
+      <p>A practical learning facility to support chemistry-related learning and science concepts.</p>
+    </article>
+  </div>
+</section>
+
+<section id="exams">
+  <div class="section-heading">
+    <span class="tag">Examinations</span>
+    <h2>Exams and Foundation Programs</h2>
+    <p>Regular assessments and foundation preparation.</p>
+  </div>
+  <div class="exam-banner">
+    <h3>IIT and NEET Foundation Programme</h3>
+    <p>Our IIT and NEET Foundation Programme is designed to introduce students to the fundamentals of science, mathematics, logical reasoning, and analytical thinking. Weekly foundation examinations provide opportunities for students to practise, assess their understanding, identify areas for improvement, and build confidence.</p>
+    <span class="badge">Monthly school exams</span>
+    <span class="badge">Weekly IIT Foundation exams</span>
+    <span class="badge">Weekly NEET Foundation exams</span>
+    <p>Contact the school for the current exam timetable, program details and class-wise information.</p>
+  </div>
+  <div class="content-card" style="margin-top:20px">
+    <h3>Importance of Examinations</h3>
+    <p>Regular examinations help students review lessons, understand their progress, and strengthen their preparation. Monthly school examinations and weekly IIT/NEET Foundation examinations encourage consistent study habits and regular revision. Assessment results can also help students and teachers identify topics that need additional attention and support continued academic improvement.</p>
+  </div>
+</section>
+
+<section class="blue-section" id="values">
+  <div class="section-heading">
+    <span class="tag">Character Building</span>
+    <h2>Discipline and Values</h2>
+  </div>
+  <div class="content-card">
+    <p>We believe that discipline, honesty, respect, punctuality, and responsibility are important parts of a student's development. We encourage students to respect their teachers and classmates, follow school rules, maintain good habits, and participate positively in school activities.</p>
+    <p>Our aim is to help students grow into responsible individuals who contribute positively to their families and society.</p>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="section-heading">
+    <span class="tag">Learning Beyond Lessons</span>
+    <h2>Modern Learning Facilities</h2>
+  </div>
+  <div class="content-card">
+    <p>Our school facilities include a computer lab, playground, and chemical lab to support different aspects of student learning. The computer lab provides opportunities to develop technology skills, the playground encourages physical activity and teamwork, and the chemical lab supports practical science learning.</p>
+    <p>These facilities complement classroom education and help students explore different areas of knowledge.</p>
+  </div>
+</section>
+
+<section class="blue-section" id="parents">
+  <div class="section-heading">
+    <span class="tag">School and Family</span>
+    <h2>A Message to Parents</h2>
+  </div>
+  <div class="content-card">
+    <p>Parents play an important role in a child's educational journey. A strong partnership between parents and teachers can support better learning habits, confidence, discipline, and personal development.</p>
+    <p>We encourage parents to communicate with the school, follow their child's academic progress, and motivate them to approach learning with curiosity, patience, and determination.</p>
+  </div>
+</section>
+
+<section id="future">
+  <div class="section-heading">
+    <span class="tag">Looking Ahead</span>
+    <h2>A Bright Future Begins Here</h2>
+  </div>
+  <div class="content-card">
+    <p>Every student has unique abilities, interests, and dreams. At Vignan Group of Schools, we believe that encouragement, consistent effort, and a supportive learning environment can help students move towards their goals.</p>
+    <p>We aim to inspire learners to keep improving, face challenges with confidence, and build a strong foundation for their future education.</p>
+  </div>
+</section>
+
+<section class="blue-section" id="gallery">
+  <div class="section-heading">
+    <span class="tag">Gallery</span>
+    <h2>School Gallery</h2>
+    <p>School photographs and founder pictures.</p>
+  </div>
+  <div class="gallery">
+    <figure>
+      <img src="school-building-1.jpg" alt="School building" loading="lazy">
+      <figcaption>School Building</figcaption>
+    </figure>
+    <figure>
+      <img src="school-building-2.jpg" alt="School campus" loading="lazy">
+      <figcaption>School Campus</figcaption>
+    </figure>
+    <figure>
+      <img src="founder-jalendhar.jpg" alt="Dr. Pagidala Jalendhar Reddy" loading="lazy">
+      <figcaption>Dr. Pagidala Jalendhar Reddy</figcaption>
+    </figure>
+    <figure>
+      <img src="founder-purendhar.jpg" alt="Pagidala Purendhar Reddy" loading="lazy">
+      <figcaption>Pagidala Purendhar Reddy</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-heading">
+    <span class="tag">Contact</span>
+    <h2>Get in Touch</h2>
+    <p>Contact Vignan Group of Schools for school-related enquiries.</p>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-card">
+        <h3>📍 Location</h3>
+        <p>Yadadri Bhongir, Telangana</p>
+      </div>
+      <div class="contact-card">
+        <h3>☎ Phone</h3>
+        <p><a href="tel:9247772064">9247772064</a></p>
+        <p><a href="tel:9247516620">9247516620</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>✉ Email</h3>
+        <p><a href="mailto:vignan.info@gmail.com">vignan.info@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="content-card">
+      <h3>School Timings</h3>
+      <div class="hours">
+        <strong>8:00 AM – 5:00 PM</strong>
+        <p>Please contact the school to confirm holidays, admissions and office availability.</p>
+      </div>
+      <h3 style="margin-top:25px">Admissions and Enquiries</h3>
+      <p>For admissions, class availability, fees and other details, contact the school directly by phone or email.</p>
+      <a class="btn btn-blue" href="mailto:vignan.info@gmail.com">Send Email</a>
+  
